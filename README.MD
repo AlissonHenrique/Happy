@@ -14,9 +14,7 @@
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/AlissonHenrique/Happy"> 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/AlissonHenrique/Happy">
 </p>
-<a href="https://www.linkedin.com/in/alissonhenri/">
-      <img alt="LinkedIn link" src="https://img.shields.io/badge/-Maiquel Piovezan-0077B5?style=flat&amp;logo=Linkedin&amp;logoColor=white" height="25px">
-  </a> 
+ 
 <br>
 
 <p align="center">
