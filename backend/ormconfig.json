@@ -1,11 +1,14 @@
-
 {
-"name": "default",
-"type": "sqlite",
-"database": "./src/database/db.sqlite",
-"entities": ["./src/models/*.ts"],
-"migrations": ["./src/database/migrations/*.ts"],
-    "cli": {
-      "migrationsDir": "./src/database/migrations"
-    }
+  "type": "sqlite",
+  "logging": ["query"],
+  "database": "./src/database/database.sqlite",
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "entities": [
+    "./src/models/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }

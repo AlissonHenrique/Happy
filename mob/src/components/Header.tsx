@@ -1,52 +1,56 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View ,StyleSheet,Text} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { View, StyleSheet, Text } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Feather} from '@expo/vector-icons';
+import { StackHeaderProps } from '@react-navigation/stack';
 
-interface HeaderProps {
-  title: string;
+interface HeaderProps extends StackHeaderProps {
   showCancel?: boolean;
+  title: string;
 }
-const Header = ({ title, showCancel =  true }: HeaderProps) => {
-  const navigation = useNavigation();
 
-  const HandleBackHomePage = () => {
-    navigation.navigate('OrphanagesMap')
+export default function Header({ showCancel = true, title, navigation }: HeaderProps) {
+  function handleCancelCreateOrphanage() {
+    navigation.navigate('OrphanagesMap');
   }
+
   return (
-              <View style={styles.container}>
-              <BorderlessButton onPress={navigation.goBack}>
-                <Feather name="arrow-left" size={24} color="#15b6d6" />
-              </BorderlessButton>
+    <View style={styles.container}>
+      <BorderlessButton onPress={navigation.goBack}>
+        <Feather name="arrow-left" size={24} color="#15B6D6" />
+      </BorderlessButton>
 
-              <Text style={styles.title}>{ title }</Text>
+      <Text style={styles.title}>{title}</Text>
 
-              { showCancel ? (
-                <BorderlessButton onPress={HandleBackHomePage}>
-                  <Feather name="x" size={24} color="#ff669d" />
-                </BorderlessButton>
-              ) : (  <View /> )}
-            </View>
+      { showCancel
+        ? (
+          <BorderlessButton onPress={handleCancelCreateOrphanage}>
+            <Feather name="x" size={24} color="#FF669D" />
+          </BorderlessButton>
+        )
+        : (
+          <View />
+        ) }
+    </View>
   );
 }
+
 const styles = StyleSheet.create({
-  container:{
-    padding:24,
-    backgroundColor:'#f9fafc',
-    borderBottomWidth:1,
-    borderColor:'#dde3f0',
-    paddingTop:44,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
+  container: {
+    padding: 24,
+    backgroundColor: '#f9fafc',
+    borderBottomWidth: 1,
+    borderColor: '#DDE3F0',
+    paddingTop: 44,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
-  title:{
-    color:'#8fa7b3',
-    fontSize:16,
-    fontFamily:'Nunito_600SemiBold',
-  }
+
+  title: {
+    fontFamily: 'Nunito_600SemiBold',
+    color: '#8fa7b3',
+    fontSize: 16,
+  },
 })
-
-
-export default Header;
